@@ -1,0 +1,54 @@
+<!-- EJEMPLOS BASICOS DE ANGULAR -->
+
+<!-- TIPOS DE DATA BINDING -->
+
+
+<div class="container">
+    <!-- DATABINDING: INTERPOLATION -->
+    <div style="text-align: center;">
+        <h2>Estoy interpolando a title: {{ title }}</h2>
+    </div>
+    <!-- DATABINDING: PROPERTY -->
+    
+    <hr>
+    <h3>Tengo un boton que esta activo/inactivo dependiendo del valor de "disabled" en app.component.ts</h3>
+    <!-- si miran el boton, estamos agregando la propiedad  propiedad html ->[disabled]="disabled"<- es la variable "disabled" en app.component.ts -->
+    <button class="btn btn-primary" [disabled]="disabled">Click Me!</button>
+    <hr>
+    <!-- podemos tambien hacerlo de esta forma:  -->
+    <h3>Imagen cargada desde una variable que contiene la url de la imagen</h3>
+    <div style="text-align: center; padding-top: 10px;">
+        <img src="{{ imgUrl }}" height="300"> <!-- esta es otra forma de binding por atributo  -->
+    </div>
+
+    <!-- DATABINDING: EVENTS -->
+    <!-- por medio de eventos, podemos hacer que app.component.ts y app.component.html se comuniquen entre si -->
+    <input type="text" class="form-control" value="{{text}}" (input)="onUpdateInput($event)"> <!-- (input) es un evento que se activa cada que escribimos en el -->
+    <!-- ahora vamos a ver que text va a cambiar de acuerdo a lo que escribamos en el input -->
+    <!--<input type="text" class="form-control" [(ngModel)]="text" (input)="noText()"/> -->
+    <p>valor del texto del input: {{ text }}</p>
+    <hr>
+    <p>podemos tambien combinar varios tipos de binding...</p>
+    <p>
+        este boton se habilita para ser clickeado, una vez el input de arriba no este vacio, prueba escribiendo y borrando el contenido.  
+        Te vas a fijar que el boton se activa/desactiva dependiendo de si se deja vacio o no...
+    </p>
+    <p>por otra parte, el boton ejecutara algo una vez se de click al evento (click)</p>
+    <button class="btn btn-primary" [disabled]="disabledOnInput" (click)="onClickButton()">{{ buttonText }}</button>
+
+
+    <!-- ngIf es una directiva, una directiva es un conjunto de instrucciones que ejercen cambios en elementos del DOM,
+        por ahora solo trabajaremos con esta, para que no se sientan tan perdidos. -->
+    <!-- si ustedes se fijan, dentro del ngIf, se evalua la condicion, en este caso clicked esta solo porque es un booleano el que se esta evaluando -->
+    <!-- separando con punto y coma, podemos poner un else y a continuacion, se creo una etiqueta (ng-template, con un id #notClicked)
+    la etiqueta ng-template solo estara visible si la o las condiciones establecidas con ngIf no se cumplen. -->
+    <p *ngIf="clicked; else notClicked" style="color:red; font-weight: bold;">Joder tio!! me han clickeado...</p>
+    <ng-template #notClicked>
+        <p style="color:green; font-weight: bold;">Ostias tio, por que no estoy clickeado joder?</p>
+    </ng-template> <!-- entonces hacen la prueba, llenan el input para habilitar el boton y al clickearlo pueden ver que los textos cambian -->
+</div>
+
+
+
+
+
