@@ -1,0 +1,36 @@
+    <label>Nombre</label>
+    <input  type="text" class="form-control" [(ngModel)]="nombre"/>
+    <label>Edad</label>
+    <input type="text" class="form-control" [(ngModel)]="edad"/>
+    <label>Cargo</label>
+    <select class="form-control" name="" id="" [(ngModel)]="cargo">
+      <option value="Gerente">Gerente</option>
+      <option value="Secretaria">Secretaria</option>
+      <option value="Selador">Selador</option>
+    </select>
+    <button class="btn btn-success" style="margin-top: 15px" (click)="onAdicionar()">Adicionar</button>
+    <div class="container">
+        <table class="table table-striped" >
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Cargo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let persona of personaList">
+      
+              <td>{{persona.nombre}}</td>
+              <td>{{persona.edad}}</td>
+              <td>{{persona.cargo}}</td>
+            </tr>
+          </tbody>
+          </table>
+
+    </div>
+    
+    <!-- <div class="btn-group btn-group-justified">
+            <button class="btn btn-danger" style="width:15%" (click)="onAddServer()">add server</button>
+            <button class="btn btn-primary" style="width:15%" (click)="onAddBluePrint()">add blueprint server</button>
+    </div> -->
