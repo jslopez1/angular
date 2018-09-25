@@ -1,25 +1,11 @@
-<!-- EJEMPLOS BASICOS DE ANGULAR -->
-
-<!-- TIPOS DE DATA BINDING -->
-
-
 <div class="container">
-    <app-micomponente
-        (serverCreated)="onServerAdded($event)"
-
-        (bluePrintCreated)="onAddBluePrint($event)">
-    </app-micomponente>
-    <hr>
-    <!-- <div >
-        <app-server *ngFor="let element of serverElements" [element]="serverElements">
-
-        </app-server>
-
-     
-    </div> -->
+    <DIV style="text-align:center;"></DIV>
+    <h2>Bienvenido al buscador de peliculas</h2>
+    <div>
+        <label >Escriba el nombre de la pelicula aqui</label>
+        <input type="text" class="form-control" [(ngModel)]="movie">
+    </div>
+    <div style="margin-top:20px;">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
-
-
-
-
