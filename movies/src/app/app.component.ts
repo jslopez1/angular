@@ -18,11 +18,12 @@ export class AppComponent implements OnInit {
       if(evt.keyCode==13){
         
         if(this.filtro.length>0){
+          this.router.navigate(['/movies'],{queryParams:{filter:this.filter}});
          this.movieService.getMovieByFilter(this.filtro).subscribe(
               (response:Response)=>{
   
                   this.data=response.json().Search;
-                  this.router.navigate(['/movies'])
+                  
                   console.log(this.data[0].Title);
                   console.log(this.data);
               }
